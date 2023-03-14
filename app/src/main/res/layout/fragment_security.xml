@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".SecurityFragment">
+    <TextView
+        android:id="@+id/tecxt_security"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/security"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_margin="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:cardBackgroundColor="#f0897b"
+        app:cardCornerRadius="16dp"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tecxt_security"
+        android:id="@+id/firstcard" >
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/text_sos"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="@id/firstcard"
+        app:layout_constraintStart_toStartOf="@id/firstcard"
+        android:elevation="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/sos"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/dimen_25_sp"
+        />
+    <TextView
+        android:id="@+id/SOS_msg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/in_case_of_emergy_keep_telling_family_members_to_contact_me"
+        android:layout_margin="16dp"
+        android:elevation="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/firstcard"
+        app:layout_constraintEnd_toStartOf="@id/drawble_global"
+        app:layout_constraintTop_toBottomOf="@id/text_sos"/>
+
+    <ImageView
+        android:id="@+id/drawble_global"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:elevation="8dp"
+        android:src="@drawable/lifesaver"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/firstcard"
+        app:layout_constraintEnd_toEndOf="@id/firstcard"
+        app:layout_constraintTop_toTopOf="@id/text_sos"/>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:cardBackgroundColor="@color/green"
+        app:cardCornerRadius="16dp"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toBottomOf="@id/firstcard"
+        android:id="@+id/secondcard" />
+
+    <TextView
+        android:id="@+id/text_guard"
+        android:layout_margin="16dp"
+        app:layout_constraintTop_toTopOf="@id/secondcard"
+        app:layout_constraintStart_toStartOf="@id/secondcard"
+        android:elevation="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/guard"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        />
+    <TextView
+        android:id="@+id/guard_msg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/open_when_you_are_on_a_potentionally_dangerous_journey"
+        android:layout_margin="16dp"
+        android:elevation="8dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="@id/secondcard"
+        app:layout_constraintEnd_toStartOf="@id/drawble_guard"
+        app:layout_constraintTop_toBottomOf="@id/text_guard"/>
+    <ImageView
+        android:id="@+id/drawble_guard"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:elevation="8dp"
+        android:src="@drawable/police"
+        android:layout_margin="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/secondcard"
+        app:layout_constraintEnd_toEndOf="@id/secondcard"
+        app:layout_constraintTop_toTopOf="@id/text_guard"/>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
