@@ -20,9 +20,17 @@ class MainActivity : AppCompatActivity() {
 
                 inflateFragment(HomeFragment.newInstance())
             }
+            else if(menuItem.itemId==R.id.menu_dashboard){
 
+                inflateFragment(DashboardFragment.newInstance())
+            }
+            else if(menuItem.itemId==R.id.menu_profile){
+
+                inflateFragment(ProfileFragment.newInstance())
+            }
             true
         }
+        bottomBar.selectedItemId=R.id.menu_home
     }
 
 

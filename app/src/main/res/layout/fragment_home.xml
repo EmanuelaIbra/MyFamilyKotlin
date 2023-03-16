@@ -5,12 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/dark_grey"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".HomeFragment">
 
 
      <TextView
-        android:id="@+id/tecxt_security"
+        android:id="@+id/text_security"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/my_family"
@@ -21,6 +22,36 @@
          app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+     <ImageView
+          android:id="@+id/location_icon"
+         android:layout_width="30dp"
+         android:layout_height="30dp"
+         android:src="@drawable/ic_location"
+         android:layout_margin="8dp"
+         app:layout_constraintStart_toStartOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         />
+     <ImageView
+         android:id="@+id/more_icon"
+         android:layout_width="30dp"
+         android:layout_height="30dp"
+         android:src="@drawable/ic_more"
+         android:layout_margin="8dp"
+         app:layout_constraintEnd_toEndOf="parent"
+         app:layout_constraintTop_toTopOf="parent"
+         />
+
+     <androidx.recyclerview.widget.RecyclerView
+         android:id="@+id/rectangles_member"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         app:layout_constraintBottom_toBottomOf="parent"
+         app:layout_constraintTop_toBottomOf="@id/text_security"
+         app:layout_constraintVertical_bias="1.0"
+         tools:layout_editor_absoluteX="52dp"
+         tools:listitem="@layout/member_listview" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

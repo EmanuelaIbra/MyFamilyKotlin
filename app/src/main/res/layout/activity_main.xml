@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <TextView
-        android:id="@+id/tecxt_security"
+        android:id="@+id/text_security"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/my_family"
