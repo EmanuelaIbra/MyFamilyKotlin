@@ -35,7 +35,18 @@ class HomeFragment : Fragment() {
         val recycler =requireView().findViewById<RecyclerView>(R.id.rectangles_member)
         recycler.layoutManager=LinearLayoutManager(requireContext())
         recycler.adapter=adapter
+
+        val listContacts= listOf<ContactsModel>(
+            ContactsModel(name = "Ela4", number = 12356),
+            ContactsModel(name = "Ela4", number = 12356),
+            ContactsModel(name = "Ela4", number = 12356),
+        )
+        val inviteAdapter=InviteAdapter(listContacts)
+        val inviterecycler =requireView().findViewById<RecyclerView>(R.id.recycle_invite)
+        inviterecycler.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        inviterecycler.adapter=inviteAdapter
     }
+
 
 
     companion object {

@@ -18,25 +18,25 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_margin="16sp"
+        android:layout_margin="16dp"
          app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
      <ImageView
           android:id="@+id/location_icon"
-         android:layout_width="30dp"
-         android:layout_height="30dp"
+         android:layout_width="24dp"
+         android:layout_height="24dp"
          android:src="@drawable/ic_location"
-         android:layout_margin="8dp"
+         android:layout_margin="16dp"
          app:layout_constraintStart_toStartOf="parent"
          app:layout_constraintTop_toTopOf="parent"
          />
      <ImageView
          android:id="@+id/more_icon"
-         android:layout_width="30dp"
-         android:layout_height="30dp"
+         android:layout_width="24dp"
+         android:layout_height="24dp"
          android:src="@drawable/ic_more"
-         android:layout_margin="8dp"
+         android:layout_margin="16dp"
          app:layout_constraintEnd_toEndOf="parent"
          app:layout_constraintTop_toTopOf="parent"
          />
@@ -45,11 +45,29 @@
          android:id="@+id/rectangles_member"
          android:layout_width="match_parent"
          android:layout_height="0dp"
-         app:layout_constraintBottom_toBottomOf="parent"
-         app:layout_constraintTop_toBottomOf="@id/text_security"
-         app:layout_constraintVertical_bias="1.0"
-         tools:layout_editor_absoluteX="52dp"
+         android:layout_marginTop="8dp"
+         android:layout_marginBottom="8dp"
+         app:layout_constraintBottom_toTopOf="@id/ivitecard"
+         app:layout_constraintTop_toBottomOf="@+id/text_security"
          tools:listitem="@layout/member_listview" />
+
+     <com.google.android.material.card.MaterialCardView
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:id="@+id/ivitecard"
+         android:layout_margin="16dp"
+         app:cardCornerRadius="16dp"
+         app:cardElevation="8dp"
+         app:layout_constraintBottom_toBottomOf="parent">
+
+          <androidx.recyclerview.widget.RecyclerView
+              android:layout_width="match_parent"
+              android:layout_height="150dp"
+              android:id="@+id/recycle_invite"
+              android:layout_marginTop="8dp"
+              tools:listitem="@layout/invite"/>
+
+     </com.google.android.material.card.MaterialCardView>
 
 
 
