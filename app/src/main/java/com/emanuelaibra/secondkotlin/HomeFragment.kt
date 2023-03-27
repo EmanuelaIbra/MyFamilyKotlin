@@ -1,6 +1,8 @@
 package com.emanuelaibra.secondkotlin
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.provider.ContactsContract
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -36,17 +38,51 @@ class HomeFragment : Fragment() {
         recycler.layoutManager=LinearLayoutManager(requireContext())
         recycler.adapter=adapter
 
-        val listContacts= listOf<ContactsModel>(
-            ContactsModel(name = "Ela4", number = 12356),
-            ContactsModel(name = "Ela4", number = 12356),
-            ContactsModel(name = "Ela4", number = 12356),
-        )
-        val inviteAdapter=InviteAdapter(listContacts)
+
+        val inviteAdapter=InviteAdapter(fetchContacts())
         val inviterecycler =requireView().findViewById<RecyclerView>(R.id.recycle_invite)
         inviterecycler.layoutManager=LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
         inviterecycler.adapter=inviteAdapter
     }
 
+    @SuppressLint("Range")
+    private fun fetchContacts() : ArrayList<ContactsModel> {
+        val cr=requireActivity().contentResolver
+        val cursor=cr.query(ContactsContract.Contacts.CONTENT_URI,null,null,null,null)
+
+        val listContacts:ArrayList<ContactsModel> = ArrayList()
+
+        if(cursor!=null && cursor.count>0){
+            while(cursor!=null && cursor.moveToNext()){
+                val id=cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts._ID))
+                val name=cursor.getString(cursor.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME))
+                val hasphonenumber=cursor.getInt(cursor.getColumnIndex(ContactsContract.Contacts.HAS_PHONE_NUMBER))
+
+                if (hasphonenumber>0){
+                    val pCur=cr.query(
+                    ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                    null,
+                    ContactsContract.CommonDataKinds.Phone.CONTACT_ID+"=?",
+                    arrayOf(id),
+                    ""
+                    )
+
+                    if (pCur!= null && pCur.count>0){
+                        while (pCur!=null && pCur.moveToNext()){
+                            val phoneNum=pCur.getString(pCur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER))
+
+                            listContacts.add(ContactsModel(name, phoneNum))
+                        }
+                        pCur.close()
+                    }
+                }
+            }
+            if (cursor!=null){
+                cursor.close()
+            }
+        }
+        return listContacts
+    }
 
 
     companion object {

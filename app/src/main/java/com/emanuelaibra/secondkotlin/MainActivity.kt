@@ -8,11 +8,13 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.security.Permission
 
 class MainActivity : AppCompatActivity() {
 
     val permissions= arrayOf(
-        android.Manifest.permission.ACCESS_FINE_LOCATION
+        android.Manifest.permission.ACCESS_FINE_LOCATION,
+        android.Manifest.permission.READ_CONTACTS,
     )
     val permissionCode=78
 
